@@ -9,7 +9,7 @@ So the JRE calls ClassName.main()
 its void because it does not return anything
 
 
-String[] args are the arguements you pass from the command line while running the file
+String[] args are the arguments you pass from the command line while running the file
 ______________________________________________________________________________________
 //Maps
 
@@ -48,4 +48,20 @@ HASHSETS - > when printed , it prints in random order
 TREESETS - > when printed, it prints in natural order (sequential or alphabetical)
 LINKEDHASHSETS - > when printed, it prints in the order it was inserted
 
+______________________________________________________________________________________
+//Lambdas
+
+A lambda can only be used where a functional interface is expected.
+A functional interface is an interface with exactly one abstract method.
+Some built-in functional interfaces in java.util.function:
+
+Predicate<T> → boolean test(T t)
+Function<T,R> → R apply(T t)
+Consumer<T> → void accept(T t)
+Supplier<T> → T get()
+UnaryOperator<T> → T apply(T t)
+BinaryOperator<T> → T apply(T t1, T t2)
+
+
+For revision refer this - https://www.youtube.com/watch?v=tj5sLSFjVj4
 ______________________________________________________________________________________
