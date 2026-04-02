@@ -1,0 +1,13 @@
+//public static void main(String[] args)
+
+its public because it can be accessed outside this class.
+This means not by the developers, but the JRE can access it
+
+its static because it can be called without creating any instance
+So the JRE calls ClassName.main()
+
+its void because it does not return anything
+
+
+String[] args are the arguements you pass from the command line while running the file
+______________________________________________________________________________________
