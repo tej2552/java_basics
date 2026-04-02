@@ -40,3 +40,12 @@ Avoids NPEs entirely
 map.get() → always returns Integer
 Assign to int → auto-unboxed
 Missing key → null → unboxing fails → NPE
+
+______________________________________________________________________________________
+Sets
+
+HASHSETS - > when printed , it prints in random order
+TREESETS - > when printed, it prints in natural order (sequential or alphabetical)
+LINKEDHASHSETS - > when printed, it prints in the order it was inserted
+
+______________________________________________________________________________________
