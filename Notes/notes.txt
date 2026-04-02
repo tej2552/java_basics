@@ -11,3 +11,32 @@ its void because it does not return anything
 
 String[] args are the arguements you pass from the command line while running the file
 ______________________________________________________________________________________
+//Maps
+
+1️⃣ Map always stores objects
+Map<String, Integer> map = new HashMap<>();
+map.put("Alice", 101);  // stored as Integer object
+Even though 101 is an int, it’s autoboxed to Integer when stored.
+2️⃣ map.get(key) always returns Integer
+Integer obj = map.get("Alice"); // works fine
+3️⃣ Assigning to a primitive int triggers auto-unboxing
+int id = map.get("Alice");  // Integer → int automatically
+Java sees that the target is a primitive int.
+It automatically converts the Integer object to int (unboxing).
+4️⃣ Caveat: nulls
+int id = map.get("Bob"); // ❌ NullPointerException
+If the key is missing, map.get() returns null.
+Java cannot unbox null → throws NullPointerException.
+
+✅ That’s why Integer id = map.get("Bob"); is safer if the key might be missing.
+
+5️⃣ Safer alternative with default
+int id = map.getOrDefault("Bob", -1); // returns -1 if missing
+Works directly with primitive int
+Avoids NPEs entirely
+
+💡 TL;DR
+
+map.get() → always returns Integer
+Assign to int → auto-unboxed
+Missing key → null → unboxing fails → NPE
