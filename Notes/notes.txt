@@ -169,3 +169,50 @@ specified index for new element and inserts the new element.
 As we can see this is a hectic task compared to LL.
 
 Removing element also follows the same thing for both the Lists.
+________________________________________________________________________________________________
+//Garbage Collection
+
+It is a process of accumulating the unused objects in memory and removing them to free space
+automatically.
+
+Say for example : -
+
+we have a code as follows -
+
+NOTE - Just assume that there is a Cat class out there with a function called meow().
+
+public class Main{
+    public static void main(String[] args){
+        doThing();
+        System.out.println("BYEE....");
+    }
+
+    public void doTHing(){
+        Cat cat = new Cat();
+        cat.meow();
+    }
+}
+
+Just So You Know -
+Cat cat = new Cat(); -> This line means that a variable named cat of type Cat is a pointer
+to an actual Cat Object in the memory.
+
+Now here when the control reaches the line calling doThing(), it moves inside the function
+implementation. Now it creates a Cat object, calls the meow() and comes back to the main func
+next it moves to the next line which prints "BYEE...". So here as soon as it came out of the
+function back to the main func and moved to print line, the scope of the cat object was gone.
+So the cat pointer is destroyed and in the memory and a stray object is left behind with no pointer
+pointing to it. So garbage collector gets to know that this is a stray object and destroys it.
+
+How Garbage Collector actually works behind the scenes
+
+In Java and other JVM-based languages, there is something called Young Generation heap, which
+is a specific region of heap memory where all newly created objects are initially allocated.
+Once this heap gets populated, the GC looks into it and gets rid of unused objects by a
+mechanism called mark and sweep.
+Basically it marks the objects which are in use just as an identifier, and then sweeps the
+objects which are not marked.
+
+So if ever objects survive this mark and sweep for a long time, then the GC moves these objects
+from Younger gen heap to older gen heap, where the mark and sweep is less frequent. Thus it makes
+space in younger gen heap for more new objects.
