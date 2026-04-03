@@ -55,6 +55,16 @@ A lambda can only be used where a functional interface is expected.
 A functional interface is an interface with exactly one abstract method.
 Some built-in functional interfaces in java.util.function:
 
+So generally if we want to define an abstract method of a functional interface,
+we would have to declare and define a class which implements it, then create an object and call it
+in the main function. Suppose if we want to implement it in 2 or 3 ways, we would have to create 2 or 3
+classes and then implement it.
+
+So to solve these, lambdas are helpful. As it is a functional interface, we can directly pass any
+number of implementation in the main func instead of all the above-mentioned steps.
+
+Please refer the Lambdas class in the Concepts package of this project
+
 Predicate<T> → boolean test(T t)
 Function<T,R> → R apply(T t)
 Consumer<T> → void accept(T t)
@@ -65,3 +75,97 @@ BinaryOperator<T> → T apply(T t1, T t2)
 
 For revision refer this - https://www.youtube.com/watch?v=tj5sLSFjVj4
 ______________________________________________________________________________________
+//ArrayList vs LinkedList in java
+
+In java both have same functionalities and on the surface both looks the same, but
+the behaviour behind the scenes differ.
+
+An arraylist is based from arrays.
+Whenever we create an arraylist, it creates an array of some default size behind the scenes
+Once the capacity is used, it again creates another array of it and so on.
+This way we can use array list of dynamic size.
+
+
+While Linked list in java uses doubly linked list as its base.
+So each and every element is present in a node, and each node has the reference
+to previous and next node.
+
+So here is an example :
+
+As arraylist is based from array
+
+ArrayList<String> names = new ArrayList<>();
+names.add("Tejas");
+names.add("Deepak");
+names.add("Amith");
+names.add("Vishwas");
+
+This will create an array behind the scenes like
+
+Index:   0        1        2        3
+       +--------+--------+--------+---------+
+       | Tejas  | Deepak | Amith  | Vishwas |
+       +--------+--------+--------+---------+
+And notice that each and every element has an index.
+
+So whenever we try get an element, its quicker
+names.get(2); -> this will directly go to the index 2 and fetch it
+
+_________________________________________________________________
+As Linkedlist is based from doubly linked list
+
+LinkedList<String> names = new LinkedList<>();
+names.add("Tejas");
+names.add("Dev");
+names.add("Subba");
+names.add("Rakshith");
+
+This will create a doubly LL behind the scenes like this
+
+        +--------+     +------+     +--------+     +-----------+
+NULL ←  | Tejas  | ⇄   | Dev  | ⇄   | Subba  | ⇄   | Rakshith  | → NULL
+        +--------+     +------+     +--------+     +-----------+
+
+names.get(2); -> this is relatively slower
+
+So here getting a value is hectic than compared to Arraylist
+because it doesn't have an index system, so it has to start either from head or tail
+move to the next or prev until it reaches the desired value and then return it.
+
+
+But when it comes to adding or removing the elements, Linked List is way faster than
+ArrayList in java
+
+In LL, while adding or removing it just goes to the specified index.
+Let's say we do names.add(1,"Rafeeq"); in LL.
+
+It just takes a index variable(local) and moves with the head, until the specified index value
+is reached. (FYI - As there is no implicit index system in LL, it will declare a variable and move
+behind the scenes).
+
+So now it just rewires the next and prev of that spot. That's it none of the other elements were
+touched for rewiring.
+
+
+But where as in Array List, as it is based on arrays.
+Let's say we do names.add(1,"Clement");
+
+As we know it had created an array behind the scenes initially with
+
+            0        1        2        3
+       +--------+--------+--------+---------+
+       | Tejas  | Deepak | Amith  | Vishwas |
+       +--------+--------+--------+---------+
+
+Now as it as an array it cannot add a new element.
+So it creates a new array with new size, copies the old elements of it leaving an empty space at the
+specified index for new element and inserts the new element.
+
+                0        1        2        3        4
+           +--------+--------+--------+---------+---------+
+           | Tejas  | Clement | Deepak | Amith  | Vishwas |
+           +--------+--------+--------+---------+---------+
+
+As we can see this is a hectic task compared to LL.
+
+Removing element also follows the same thing for both the Lists.
