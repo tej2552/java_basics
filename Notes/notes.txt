@@ -216,3 +216,19 @@ objects which are not marked.
 So if ever objects survive this mark and sweep for a long time, then the GC moves these objects
 from Younger gen heap to older gen heap, where the mark and sweep is less frequent. Thus it makes
 space in younger gen heap for more new objects.
+________________________________________________________________________________________________
+//Heap and stack in JVM
+
+When your program runs, JVM divides memory mainly into:
+Stack
+Heap
+
+Heap is used for:
+Objects
+Class instances
+Arrays
+
+Stack is used for:
+Local variables
+Function calls
+________________________________________________________________________________________________
