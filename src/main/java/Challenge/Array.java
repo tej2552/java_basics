@@ -1,23 +1,17 @@
 package Challenge;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Array{
+    static int[] arr;
+
     public static void main(String[] args) {
         final ArrayUtils utils = new ArrayUtils();
         final Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the number of elements u want");
-        int number = sc.nextInt();
-
-        int[] arr = new int[number];
-
-        for(int i = 0 ; i < number ; i++){
-            System.out.println("Enter the number : ");
-            int ele = sc.nextInt();
-            arr[i] = ele;
-        }
+         arr = utils.createArray();
 
         while (true){
             System.out.println("______________________________");
@@ -31,7 +25,10 @@ public class Array{
             System.out.println("7. Reverse 2 elements in the array");
             System.out.println("8. Rotate the array");
             System.out.println("9. Sum of sub array in each element position");
-            System.out.println("10. Nothing -> Just Exit");
+            System.out.println("10. Sort the array");
+            System.out.println("11. Create a new array ? Y/N");
+            System.out.println("12. Want to find a pair whose sum is equal to your desired number ?");
+            System.out.println("13. Nothing -> Just Exit");
             System.out.println("______________________________");
 
             int choice = sc.nextInt();
@@ -80,6 +77,27 @@ public class Array{
                     utils.sumOfSubArray(arr);
                     break;
                 case 10:
+                    utils.sortArray(arr);
+                    break;
+                case 11:
+                    System.out.println("Are you sure - 'the current array will be discarded'");
+                    String selection = sc.next();
+                    if(selection.equalsIgnoreCase("y")){
+                        arr = utils.createArray();
+                    }
+                    break;
+                case 12:
+                    System.out.println("Tell me your desired number");
+                    int desNum = sc.nextInt();
+                    System.out.println("Is the array sorted ? y/n ");
+                    String sorted = sc.next();
+                    if(sorted.equalsIgnoreCase("n")){
+                        utils.sortArray(arr);
+                    }
+                    int[] ans = utils.sumToTarget(arr, desNum);
+                    System.out.println("Pair -> "+ Arrays.toString(ans));
+                    break;
+                case 13:
                     System.out.println("OK prend bye....");
                     sc.close();
                     return;
