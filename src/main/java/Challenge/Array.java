@@ -28,7 +28,10 @@ public class Array{
             System.out.println("10. Sort the array");
             System.out.println("11. Create a new array ? Y/N");
             System.out.println("12. Want to find a pair whose sum is equal to your desired number ?");
-            System.out.println("13. Nothing -> Just Exit");
+            System.out.println("13. Check frequencies of each element");
+            System.out.println("14. Get the pairs which are equal to ur desired number >");
+            System.out.println("15. Get the pairs whose sum is less than ur desired number");
+            System.out.println("16. Nothing -> Just Exit");
             System.out.println("______________________________");
 
             int choice = sc.nextInt();
@@ -88,6 +91,7 @@ public class Array{
                     break;
                 case 12:
                     System.out.println("Tell me your desired number");
+                    System.out.println("NOTE -> Make sure the number you desire should be some sum of numbers in the array");
                     int desNum = sc.nextInt();
                     System.out.println("Is the array sorted ? y/n ");
                     String sorted = sc.next();
@@ -98,6 +102,21 @@ public class Array{
                     System.out.println("Pair -> "+ Arrays.toString(ans));
                     break;
                 case 13:
+                    utils.countFrequencyOfAllElements(arr);
+                    break;
+                case 14:
+                    System.out.println("What is the number u desire ? ");
+                    System.out.println("NOTE -> Make sure the number you desire should be some sum of numbers in the array");
+                    int desire = sc.nextInt();
+                    utils.countAllPairsWithTargetSum(arr, desire);
+                    break;
+                case 15:
+                    System.out.println("What is the number u desire ? ");
+                    System.out.println("NOTE -> Make sure the number you desire should be some sum of numbers in the array");
+                    int des = sc.nextInt();
+                    utils.listSumPairsLessThanTarget(arr,des);
+                    break;
+                case 16:
                     System.out.println("OK prend bye....");
                     sc.close();
                     return;

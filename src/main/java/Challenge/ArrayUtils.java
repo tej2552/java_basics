@@ -1,7 +1,6 @@
 package Challenge;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayUtils {
 
@@ -200,5 +199,67 @@ public class ArrayUtils {
             }
         }
         return new int[]{-1, -1};
+    }
+
+    public void countFrequencyOfAllElements(int[] arr){
+
+        HashMap<Integer, Integer> frequencies = new HashMap<>();
+
+
+        for(int i = 0 ; i <= arr.length-1 ; i++){
+            int count = 0;
+            if(frequencies.containsKey(arr[i])){
+                frequencies.put(arr[i], frequencies.get(arr[i])+1);
+            }else{
+                frequencies.put(arr[i], ++count);
+            }
+
+        }
+
+        System.out.println("Frequencies of each element -> "+frequencies);
+    }
+
+    public void countAllPairsWithTargetSum(int[] arr, int target){
+        Set<ArrayList<Integer>> listOfPairs = new HashSet<>();
+
+        for(int i = 0 ; i < arr.length-1 ; i++){
+            int a = arr[i];
+            for(int j = i+1 ; j <= arr.length-1 ; j++){
+                int b = arr[j];
+                int sum = a+b;
+                if(sum == target){
+                    ArrayList<Integer> pairs = new ArrayList<>();
+                    pairs.add(a);
+                    pairs.add(b);
+                    listOfPairs.add(pairs);
+                }
+            }
+        }
+
+
+        System.out.println("List of pairs - > " +listOfPairs);
+        System.out.println("Total number of pairs - > "+listOfPairs.size());
+    }
+
+    public void listSumPairsLessThanTarget(int[] arr, int target){
+        Set<ArrayList<Integer>> listOfPairs = new HashSet<>();
+
+        for(int i = 0 ; i < arr.length-1 ; i++){
+            int a = arr[i];
+            for(int j = i+1 ; j <= arr.length-1 ; j++){
+                int b = arr[j];
+                int sum = a + b ;
+                if(sum < target){
+                    ArrayList<Integer> pairs = new ArrayList<>();
+                    pairs.add(a);
+                    pairs.add(b);
+                    listOfPairs.add(pairs);
+                }
+            }
+
+        }
+
+        System.out.println("Pairs having sum less than ur number - > "+listOfPairs);
+        System.out.println("Total number of pairs - > "+listOfPairs.size());
     }
 }
