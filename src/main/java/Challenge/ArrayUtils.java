@@ -262,4 +262,22 @@ public class ArrayUtils {
         System.out.println("Pairs having sum less than ur number - > "+listOfPairs);
         System.out.println("Total number of pairs - > "+listOfPairs.size());
     }
+
+    public void largestSumOfContiguousSubArray(int[] arr, int k){
+
+        int sum = 0;
+        for(int i = 0 ; i <= arr.length-k ; i++){
+            int loopSum = 0;
+            for(int j = i ; j < i+k ; j++){
+                loopSum += arr[j];
+            }
+
+            if(loopSum > sum){
+                sum = loopSum;
+            }
+        }
+
+        System.out.println("Largest subarray sum is - > "+sum);
+
+    }
 }

@@ -31,7 +31,8 @@ public class Array{
             System.out.println("13. Check frequencies of each element");
             System.out.println("14. Get the pairs which are equal to ur desired number >");
             System.out.println("15. Get the pairs whose sum is less than ur desired number");
-            System.out.println("16. Nothing -> Just Exit");
+            System.out.println("16. Want to see a subarray having largest sum value ?");
+            System.out.println("17. Nothing -> Just Exit");
             System.out.println("______________________________");
 
             int choice = sc.nextInt();
@@ -117,6 +118,11 @@ public class Array{
                     utils.listSumPairsLessThanTarget(arr,des);
                     break;
                 case 16:
+                    System.out.println("What should be the subarray size ?");
+                    int size = sc.nextInt();
+                    utils.largestSumOfContiguousSubArray(arr, size);
+                    break;
+                case 17:
                     System.out.println("OK prend bye....");
                     sc.close();
                     return;
