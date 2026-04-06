@@ -169,6 +169,12 @@ specified index for new element and inserts the new element.
 As we can see this is a hectic task compared to LL.
 
 Removing element also follows the same thing for both the Lists.
+
+Insights - > Refer below for a summarised insight for the diff btwn the 2
+
+Operation - > Get        Insert       Delete
+Arraylist ->  Quicker    Slower       Slower
+linkedlist -> Slower     Quicker      Quicker
 ________________________________________________________________________________________________
 //Garbage Collection
 
