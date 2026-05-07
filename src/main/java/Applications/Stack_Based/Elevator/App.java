@@ -1,4 +1,6 @@
-package Applications;
+package Applications.Stack_Based.Elevator;
+
+import Exceptions.ElevatorExceptions;
 
 import java.util.Stack;
 
@@ -43,11 +45,19 @@ public class App {
         return personStack.peek();
     }
 
-    public int showPersonWithHighestPriority(){
+    public int showPersonWithHighestPriority() throws ElevatorExceptions {
+        if(personWithMaxPriority.isEmpty()){
+            throw new ElevatorExceptions("No One in elevator");
+        }
+
         return personWithMaxPriority.peek();
     }
 
-    public int showPersonWithLeastPriority(){
+    public int showPersonWithLeastPriority() throws ElevatorExceptions{
+        if(personWithLowPriority.isEmpty()){
+            throw new ElevatorExceptions("No One in elevator");
+        }
+
         return personWithLowPriority.peek();
     }
 

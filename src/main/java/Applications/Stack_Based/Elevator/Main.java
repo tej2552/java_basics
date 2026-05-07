@@ -1,10 +1,12 @@
-package Applications;
+package Applications.Stack_Based.Elevator;
+
+import Exceptions.ElevatorExceptions;
 
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ElevatorExceptions {
         App app = new App();
         Scanner sc = new Scanner(System.in);
 
@@ -28,15 +30,27 @@ public class Main {
                     int pr = sc.nextInt();
                     app.addPerson(pr);
                     app.showAllPersonPriority();
-                    System.out.println("Current highest prioritised person in elevator is -> "+app.showPersonWithHighestPriority());
+                    try {
+                        System.out.println("Current highest prioritised person in elevator is -> " + app.showPersonWithHighestPriority());
+                    }catch (ElevatorExceptions el){
+                        System.out.println(el.getMessage());
+                    }
                     break;
                 case 2:
                     app.showAllPersonPriority();
-                    System.out.println("Highest priority of a person in the elevator currently is - > "+app.showPersonWithHighestPriority());
+                    try {
+                        System.out.println("Current highest prioritised person in elevator is -> " + app.showPersonWithHighestPriority());
+                    }catch (ElevatorExceptions el){
+                        System.out.println(el.getMessage());
+                    }
                     break;
                 case 3:
                     app.showAllPersonPriority();
-                    System.out.println("Least priority of a person in the elevator currently is - > "+app.showPersonWithLeastPriority());
+                    try {
+                        System.out.println("Least priority of a person in the elevator currently is - > " + app.showPersonWithLeastPriority());
+                    }catch (ElevatorExceptions el){
+                        System.out.println(el.getMessage());
+                    }
                     break;
                 case 4:
                     app.showAllPersonPriority();
@@ -45,7 +59,11 @@ public class Main {
                 case 5:
                     System.out.println("Dropping the person with priority "+app.dropLastPersonEntered());
                     app.showAllPersonPriority();
-                    System.out.println("Current highest prioritised person in elevator is -> "+app.showPersonWithHighestPriority());
+                    try {
+                        System.out.println("Current highest prioritised person in elevator is -> " + app.showPersonWithHighestPriority());
+                    }catch (ElevatorExceptions el){
+                        System.out.println(el.getMessage());
+                    }
                     break;
                 case 6:
                     return;
