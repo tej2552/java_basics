@@ -1,4 +1,4 @@
-package Concepts.Implementations;
+package Concepts.Implementations.Stacks;
 
 import java.util.Arrays;
 import java.util.Stack;
