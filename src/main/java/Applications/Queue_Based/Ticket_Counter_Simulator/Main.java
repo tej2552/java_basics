@@ -1,4 +1,4 @@
-package Applications.Queue_Based.Ticket_Simulator;
+package Applications.Queue_Based.Ticket_Counter_Simulator;
 
 import java.util.Scanner;
 
